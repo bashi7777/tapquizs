@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TapQuiz Enterprise</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div id="tq">
+
+  <!-- ───── NAV ───── -->
+  <nav class="nav">
+    <div class="nav-logo" onclick="go('home')">
+      <div class="nav-logomark">
+        <svg viewBox="0 0 14 14" fill="none" width="14" height="14">
+          <rect x="1" y="1" width="5" height="5" rx="1" fill="#0A0F1E"/>
+          <rect x="8" y="1" width="5" height="5" rx="1" fill="#0A0F1E" opacity="0.5"/>
+          <rect x="1" y="8" width="5" height="5" rx="1" fill="#0A0F1E" opacity="0.5"/>
+          <rect x="8" y="8" width="2" height="2" rx="0.5" fill="#0A0F1E" opacity="0.6"/>
+          <rect x="11" y="8" width="2" height="2" rx="0.5" fill="#0A0F1E" opacity="0.35"/>
+          <rect x="8" y="11" width="2" height="2" rx="0.5" fill="#0A0F1E" opacity="0.35"/>
+          <rect x="11" y="11" width="2" height="2" rx="0.5" fill="#0A0F1E" opacity="0.2"/>
+        </svg>
+      </div>
+      <span class="nav-brand">Tap<b>Quiz</b></span>
+      <div class="nav-sep"></div>
+      <span class="nav-sub">Enterprise</span>
+    </div>
+    <div class="nav-links">
+      <button class="nb on" onclick="go('home')">Dashboard</button>
+      <button class="nb" onclick="go('builder')">Builder</button>
+      <button class="nb" onclick="go('host')">Host</button>
+      <button class="nb-join" onclick="go('join')">Join Game</button>
+    </div>
+  </nav>
+
+  <!-- ───── DASHBOARD ───── -->
+  <div id="s-home" class="scr on">
+    <div class="pg-hdr">
+      <div class="pg-hdr-row">
+        <div>
+          <div class="eyebrow">Overview</div>
+          <div class="pg-title">Welcome back, Alex</div>
+          <div class="pg-sub" id="today-date">Monday, 6 April 2026 · Acme Corp workspace</div>
+        </div>
+        <button class="btn-yellow" onclick="go('builder')">+ New Quiz</button>
+      </div>
+    </div>
+
+    <div class="g4" style="margin-bottom:1.75rem">
+      <div class="met">
+        <div class="met-accent"></div>
+        <div class="met-lbl">Quizzes created</div>
+        <div class="met-val">12</div>
+        <div class="met-del del-up">↑ 3 this week</div>
+      </div>
+      <div class="met y">
+        <div class="met-accent"></div>
+        <div class="met-lbl">Sessions hosted</div>
+        <div class="met-val">47</div>
+        <div class="met-del del-up">↑ 8 this month</div>
+      </div>
+      <div class="met g">
+        <div class="met-accent"></div>
+        <div class="met-lbl">Total participants</div>
+        <div class="met-val">318</div>
+        <div class="met-del del-up">↑ 24 avg / session</div>
+      </div>
+      <div class="met b">
+        <div class="met-accent"></div>
+        <div class="met-lbl">Avg completion</div>
+        <div class="met-val">94<span class="met-unit">%</span></div>
+        <div class="met-del del-0">— stable</div>
+      </div>
+    </div>
+
+    <div class="sec-lbl">Recent quizzes</div>
+    <div class="g3" style="margin-bottom:1.75rem">
+      <div class="qcard" onclick="go('builder')">
+        <div class="qcard-top-line"></div>
+        <div class="qcard-arrow">→</div>
+        <span class="badge b-y">Team building</span>
+        <h3>Q3 All-Hands Icebreaker</h3>
+        <p>Fun trivia for the quarterly all-hands. Covers milestones, culture, and team facts.</p>
+        <div class="qcard-ft">
+          <span>10 questions</span><span>Played 4×</span><span>~4 min</span>
+        </div>
+      </div>
+      <div class="qcard" onclick="go('builder')">
+        <div class="qcard-top-line"></div>
+        <div class="qcard-arrow">→</div>
+        <span class="badge b-d">Onboarding</span>
+        <h3>Company Culture &amp; Values</h3>
+        <p>Assess new hires on values, history, and key team structures across all offices.</p>
+        <div class="qcard-ft">
+          <span>15 questions</span><span>Played 12×</span><span>~7 min</span>
+        </div>
+      </div>
+      <div class="qcard" onclick="go('builder')">
+        <div class="qcard-top-line"></div>
+        <div class="qcard-arrow">→</div>
+        <span class="badge b-g">Training</span>
+        <h3>Product Knowledge Check</h3>
+        <p>Sales refresher on product features, pricing tiers, and competitive positioning.</p>
+        <div class="qcard-ft">
+          <span>20 questions</span><span>Played 8×</span><span>~10 min</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-lbl">Upcoming sessions</div>
+    <div class="card">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Quiz</th>
+            <th>Date</th>
+            <th>Audience</th>
+            <th style="text-align:right">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-strong">Leadership Retreat Quiz</td>
+            <td>12 Apr 2026</td>
+            <td>C-Suite &amp; Directors</td>
+            <td style="text-align:right"><span class="badge b-y">Scheduled</span></td>
+          </tr>
+          <tr>
+            <td class="td-strong">Sales Kickoff Trivia</td>
+            <td>18 Apr 2026</td>
+            <td>Sales &amp; Marketing</td>
+            <td style="text-align:right"><span class="badge b-d">Draft</span></td>
+          </tr>
+          <tr>
+            <td class="td-strong">New Hire Orientation</td>
+            <td>24 Apr 2026</td>
+            <td>HR · 8 new hires</td>
+            <td style="text-align:right"><span class="badge b-g">Ready</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ───── BUILDER ───── -->
+  <div id="s-builder" class="scr">
+    <div class="pg-hdr">
+      <div class="pg-hdr-row">
+        <div>
+          <div class="eyebrow">Quiz builder</div>
+          <div class="pg-title">Q3 All-Hands Icebreaker</div>
+          <div class="pg-sub">Last edited 2 hours ago · 3 questions · ~4 min</div>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn-ghost" onclick="toast('Preview launched')">Preview</button>
+          <button class="btn-yellow" onclick="go('host')">Host now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bld-layout">
+      <div class="bld-main">
+
+        <div class="card" style="margin-bottom:14px">
+          <div class="sec-lbl" style="margin-bottom:1rem">Quiz details</div>
+          <div class="g2">
+            <div class="fld" style="grid-column:1/-1">
+              <label>Title</label>
+              <input type="text" value="Q3 All-Hands Icebreaker" />
+            </div>
+            <div class="fld">
+              <label>Category</label>
+              <select>
+                <option>Team building</option>
+                <option>Onboarding</option>
+                <option>Training</option>
+                <option>General</option>
+              </select>
+            </div>
+            <div class="fld">
+              <label>Default time per question</label>
+              <select>
+                <option>15 s</option>
+                <option selected>20 s</option>
+                <option>30 s</option>
+                <option>60 s</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:14px">
+          <div class="sec-lbl" style="margin-bottom:1rem">Questions</div>
+          <div id="ql">
+            <div class="qi on" onclick="selQ(this)">
+              <div class="qn">Q1</div>
+              <div>
+                <div class="qt">What year was the company founded?</div>
+                <div class="qm">4 options · 20 s · 200 pts</div>
+              </div>
+            </div>
+            <div class="qi" onclick="selQ(this)">
+              <div class="qn">Q2</div>
+              <div>
+                <div class="qt">Which city houses our largest office?</div>
+                <div class="qm">4 options · 20 s · 200 pts</div>
+              </div>
+            </div>
+            <div class="qi" onclick="selQ(this)">
+              <div class="qn">Q3</div>
+              <div>
+                <div class="qt">How many countries do we operate in?</div>
+                <div class="qm">4 options · 30 s · 200 pts</div>
+              </div>
+            </div>
+          </div>
+          <button class="add-q" onclick="addQ()">+ Add question</button>
+        </div>
+
+        <div class="card">
+          <div class="sec-lbl" style="margin-bottom:1rem">Edit question</div>
+          <div class="fld">
+            <label>Question text</label>
+            <textarea id="edit-q-text">What year was the company founded?</textarea>
+          </div>
+          <div class="g3-even">
+            <div class="fld">
+              <label>Time limit</label>
+              <select>
+                <option>15 s</option>
+                <option selected>20 s</option>
+                <option>30 s</option>
+                <option>60 s</option>
+              </select>
+            </div>
+            <div class="fld">
+              <label>Points</label>
+              <select>
+                <option>100</option>
+                <option selected>200</option>
+                <option>500</option>
+              </select>
+            </div>
+            <div class="fld">
+              <label>Type</label>
+              <select>
+                <option>Multiple choice</option>
+                <option>True / False</option>
+                <option>Open text</option>
+              </select>
+            </div>
+          </div>
+          <div class="fld">
+            <label>Answer options — click to mark correct</label>
+            <div class="og">
+              <div class="oi ok" onclick="markOk(this)">
+                <div class="ok-key">A</div>
+                <input type="text" value="2008" onclick="event.stopPropagation()" />
+              </div>
+              <div class="oi" onclick="markOk(this)">
+                <div class="ok-key">B</div>
+                <input type="text" value="2011" onclick="event.stopPropagation()" />
+              </div>
+              <div class="oi" onclick="markOk(this)">
+                <div class="ok-key">C</div>
+                <input type="text" value="2015" onclick="event.stopPropagation()" />
+              </div>
+              <div class="oi" onclick="markOk(this)">
+                <div class="ok-key">D</div>
+                <input type="text" value="2019" onclick="event.stopPropagation()" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bld-sidebar">
+        <div class="card-sm" style="margin-bottom:13px">
+          <div class="sec-lbl" style="margin-bottom:1rem">Actions</div>
+          <button class="sa sa-dark" onclick="toast('Quiz saved successfully')">Save changes</button>
+          <button class="sa sa-y" onclick="go('host')">Host live session</button>
+          <button class="sa sa-ghost" onclick="toast('Preview mode opened')">Preview quiz</button>
+        </div>
+
+        <div class="card-sm" style="margin-bottom:13px">
+          <div class="sec-lbl" style="margin-bottom:1rem">Settings</div>
+          <div class="tog-row">
+            <span class="tog-lbl">Live leaderboard</span>
+            <button class="tog on" onclick="this.classList.toggle('on')"></button>
+          </div>
+          <div class="tog-row">
+            <span class="tog-lbl">Randomise questions</span>
+            <button class="tog" onclick="this.classList.toggle('on')"></button>
+          </div>
+          <div class="tog-row">
+            <span class="tog-lbl">Show correct answer</span>
+            <button class="tog on" onclick="this.classList.toggle('on')"></button>
+          </div>
+          <div class="tog-row">
+            <span class="tog-lbl">Require player login</span>
+            <button class="tog" onclick="this.classList.toggle('on')"></button>
+          </div>
+          <div class="tog-row">
+            <span class="tog-lbl">Background music</span>
+            <button class="tog on" onclick="this.classList.toggle('on')"></button>
+          </div>
+        </div>
+
+        <div class="card-sm">
+          <div class="sec-lbl" style="margin-bottom:1rem">Summary</div>
+          <div class="sr"><span class="sl">Questions</span><span class="sv" id="qcount">3</span></div>
+          <div class="sr"><span class="sl">Avg time / question</span><span class="sv">22 s</span></div>
+          <div class="sr"><span class="sl">Total points</span><span class="sv" id="total-pts">600</span></div>
+          <div class="sr"><span class="sl">Est. duration</span><span class="sv">~4 min</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── HOST ───── -->
+  <div id="s-host" class="scr">
+    <div class="pg-hdr">
+      <div class="pg-hdr-row">
+        <div>
+          <div class="eyebrow">Live session</div>
+          <div class="pg-title">Q3 All-Hands Icebreaker</div>
+          <div class="pg-sub" id="h-sub">Question 1 of 10 · 24 participants connected</div>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn-ghost" onclick="toast('Session paused')">Pause</button>
+          <button class="btn-dark" onclick="nextQ()">Next question →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="host-layout">
+      <div class="host-main">
+        <div class="gb">
+          <div class="gb-top">
+            <div>
+              <div class="gb-quiz-name">Q3 All-Hands Icebreaker</div>
+              <div class="gb-q-ind" id="gb-qi">Question 1 of 10</div>
+            </div>
+            <div class="gc-box">
+              <div class="gc-lbl">Game code</div>
+              <div class="gc-val">TQ‑847</div>
+            </div>
+          </div>
+          <div class="timer-track">
+            <div class="timer-fill" id="tfill" style="width:70%"></div>
+          </div>
+          <div class="ql-lbl">Current question</div>
+          <div class="q-disp" id="q-disp">What year was the company founded?</div>
+          <div class="ag">
+            <div class="at a"><div class="ak">A</div>2008</div>
+            <div class="at b"><div class="ak">B</div>2011</div>
+            <div class="at c"><div class="ak">C</div>2015</div>
+            <div class="at d"><div class="ak">D</div>2019</div>
+          </div>
+          <div class="gc-btns">
+            <button class="cb cb-pause" onclick="toast('Session paused')">Pause</button>
+            <button class="cb cb-next" onclick="nextQ()">Next question →</button>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <div class="resp-header">
+            <div class="sec-lbl" style="margin:0;flex:1">Response breakdown</div>
+            <span class="resp-count-txt">18 of 24 answered</span>
+          </div>
+          <div class="resp-bars">
+            <div class="rb-item">
+              <div class="rb-track"><div class="rb-fill a" style="height:75%"></div></div>
+              <div class="rb-count">9</div>
+              <div class="rb-lbl">Option A</div>
+            </div>
+            <div class="rb-item">
+              <div class="rb-track"><div class="rb-fill b" style="height:33%"></div></div>
+              <div class="rb-count">4</div>
+              <div class="rb-lbl">Option B</div>
+            </div>
+            <div class="rb-item">
+              <div class="rb-track"><div class="rb-fill c" style="height:25%"></div></div>
+              <div class="rb-count">3</div>
+              <div class="rb-lbl">Option C</div>
+            </div>
+            <div class="rb-item">
+              <div class="rb-track"><div class="rb-fill d" style="height:17%"></div></div>
+              <div class="rb-count">2</div>
+              <div class="rb-lbl">Option D</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="host-side">
+        <div class="lb-panel">
+          <div class="lb-head">
+            <span class="lb-title">Leaderboard</span>
+            <span class="lb-live"><div class="lb-dot"></div>Live</span>
+          </div>
+          <div class="lb-row">
+            <div class="lb-rank r1">1</div>
+            <div class="lb-av" style="background:rgba(255,214,10,0.15);color:#7A6200">SJ</div>
+            <div class="lb-nm"><div class="lb-name">Sarah J.</div><div class="lb-dept">Marketing</div></div>
+            <div style="text-align:right"><span class="lb-pts">1,850</span><span class="lb-delta">+200</span></div>
+          </div>
+          <div class="lb-row">
+            <div class="lb-rank r2">2</div>
+            <div class="lb-av" style="background:rgba(10,132,255,0.12);color:#004D99">MK</div>
+            <div class="lb-nm"><div class="lb-name">Mike K.</div><div class="lb-dept">Engineering</div></div>
+            <div style="text-align:right"><span class="lb-pts">1,740</span><span class="lb-delta">+200</span></div>
+          </div>
+          <div class="lb-row">
+            <div class="lb-rank r3">3</div>
+            <div class="lb-av" style="background:rgba(48,209,88,0.14);color:#1A7A38">AL</div>
+            <div class="lb-nm"><div class="lb-name">Amy L.</div><div class="lb-dept">Operations</div></div>
+            <div style="text-align:right"><span class="lb-pts">1,600</span><span class="lb-delta">+200</span></div>
+          </div>
+          <div class="lb-row">
+            <div class="lb-rank">4</div>
+            <div class="lb-av" style="background:#F2F2F7;color:#3C3C43">RB</div>
+            <div class="lb-nm"><div class="lb-name">Rob B.</div><div class="lb-dept">Finance</div></div>
+            <div style="text-align:right"><span class="lb-pts">1,420</span></div>
+          </div>
+          <div class="lb-row">
+            <div class="lb-rank">5</div>
+            <div class="lb-av" style="background:#EEEDFE;color:#3C3489">TP</div>
+            <div class="lb-nm"><div class="lb-name">Tara P.</div><div class="lb-dept">Legal</div></div>
+            <div style="text-align:right"><span class="lb-pts">1,350</span></div>
+          </div>
+          <div class="pl-row">
+            <div class="av-stack">
+              <div class="av-mini" style="background:#F5C800">SJ</div>
+              <div class="av-mini" style="background:#0A84FF">MK</div>
+              <div class="av-mini" style="background:#30D158">AL</div>
+              <div class="av-mini" style="background:#8E8E93">RB</div>
+              <div class="av-mini" style="background:#7F77DD">TP</div>
+              <div class="av-mini" style="background:#3C3C43">+19</div>
+            </div>
+            <span class="pl-ct">24 participants connected</span>
+          </div>
+        </div>
+
+        <div class="share-card">
+          <div class="sh-url">tapquiz.app / join</div>
+          <div class="sh-code">TQ‑847</div>
+          <button class="sh-copy" onclick="toast('Join link copied to clipboard')">Copy join link</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── JOIN ───── -->
+  <div id="s-join" class="scr">
+    <div class="join-wrap">
+      <div class="join-mark">
+        <svg viewBox="0 0 30 30" fill="none" width="30" height="30">
+          <rect x="3" y="3" width="9" height="9" rx="2" fill="#FFD60A"/>
+          <rect x="15" y="3" width="9" height="9" rx="2" fill="#FFD60A" opacity="0.4"/>
+          <rect x="3" y="15" width="9" height="9" rx="2" fill="#FFD60A" opacity="0.4"/>
+          <rect x="15" y="15" width="3.5" height="3.5" rx="0.8" fill="#FFD60A" opacity="0.7"/>
+          <rect x="20.5" y="15" width="3.5" height="3.5" rx="0.8" fill="#FFD60A" opacity="0.4"/>
+          <rect x="15" y="20.5" width="3.5" height="3.5" rx="0.8" fill="#FFD60A" opacity="0.4"/>
+          <rect x="20.5" y="20.5" width="3.5" height="3.5" rx="0.8" fill="#FFD60A" opacity="0.2"/>
+        </svg>
+      </div>
+      <div class="join-title">Join a session</div>
+      <div class="join-sub">Enter the game code your host shared. No account needed — join instantly from any device.</div>
+
+      <div class="jfc">
+        <span class="jfl">Game code</span>
+        <input type="text" class="jci" id="join-code" maxlength="6" placeholder="TQ‑000" />
+      </div>
+      <div class="jfc">
+        <span class="jfl">Your name</span>
+        <input type="text" class="jni" id="join-name" placeholder="Full name" />
+        <span class="jfl" style="margin-top:14px;display:block">
+          Department <span class="jfl-opt">(optional)</span>
+        </span>
+        <input type="text" class="jni" id="join-dept" placeholder="e.g. Engineering, HR, Sales" />
+      </div>
+      <button class="join-btn" onclick="doJoin()">Join session →</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- Toast notification -->
+<div class="toast-bar" id="toaster"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
